@@ -5,4 +5,4 @@ from config.settings import AUTH_USER_MODEL
 
 class User(AbstractUser):
     followers = models.ManyToManyField(
-        AUTH_USER_MODEL, related_name="followings")
+        AUTH_USER_MODEL, related_name="followings", blank=True)

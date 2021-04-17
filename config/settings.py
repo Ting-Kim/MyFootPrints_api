@@ -37,8 +37,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-PROJECT_APPS = ['todo.apps.TodoConfig',
-                'history.apps.HistoryConfig',
+PROJECT_APPS = ['history.apps.HistoryConfig',
                 'user.apps.UserConfig']
 
 THIRD_PARTY_APPS = ['rest_framework', ]
