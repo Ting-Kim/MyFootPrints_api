@@ -7,4 +7,3 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = user_models.User
         fields = ['id', 'username', 'email', 'followers']
-        # extra_kwargs = {'url': {'view_name': 'user:user-detail'}}
