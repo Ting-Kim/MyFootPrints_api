@@ -31,7 +31,8 @@ def modify_histories(request, history_id):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
-    else:  # DELETE
+    # DELETE
+    else:
         try:
             history.delete()
         except:

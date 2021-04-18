@@ -6,4 +6,4 @@ class HistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = History
-        fields = '__all__'
+        fields = 'location_name, score, nutshell, address, road_address, visited_date, visited_time, created_at, updated_at, user'

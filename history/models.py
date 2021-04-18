@@ -14,27 +14,19 @@ TIME_CHOICES = (
 
 
 class History(models.Model):
-    location_name = models.CharField(max_length=20)
-    score = models.FloatField()
-    nutshell = models.CharField(max_length=50)
-    address = models.CharField(max_length=80)
-    road_address = models.CharField(max_length=80)
-    visited_date = models.DateField(null=False, default=timezone.now)
-    visited_time = models.CharField(
+    location_name = models.CharField(max_length=20)  # 방문했던 장소 이름
+    score = models.FloatField()  # 자신이 생각하는 평점
+    nutshell = models.CharField(max_length=50)  # 장소에 대한 한마디
+    address = models.CharField(max_length=80)  # 장소 지번 주소
+    road_address = models.CharField(max_length=80)  # 장소 도로명 주소
+    visited_date = models.DateField(null=False, default=timezone.now)  # 방문 날짜
+    visited_time = models.CharField(  # 방문 시각 (아침, 점심, 저녁 중 택1)
         max_length=15, choices=TIME_CHOICES, default=TIME_DINNER)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(
         'user.User', on_delete=models.CASCADE, related_name="history_user", default=None)
 
-    def update(self, data):
-        pass
-
-
-# def read_histories(request):
-    # queryset = History.objects.all()
-    # serializer = HistorySerializer(queryset, many=True)
-    # return Response(serializer.data)
 
 def create_histories(serializer):
     if serializer.is_valid():
