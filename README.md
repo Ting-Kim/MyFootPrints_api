@@ -1,11 +1,7 @@
 # Todo API (Django REST Framework)
 
 ### ✏ Description
-- This API is for record todo list
-  - provide CRUD function
-- implemented using Django REST Framework
-- todo list have comments
-<br>
+- This API is for record history where we visit
 
 ### ⚙ Envirionments (python 3.8.0)
 > pip install django==3.1.7
@@ -30,7 +26,16 @@ root
 ├── db.sqlite3
 ├── manage.py
 ├── requirements.txt
-└── todo
+└── history
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── serializers.py
+    ├── tests.py
+    ├── urls.py
+    └── views.py
+└── user
     ├── __init__.py
     ├── admin.py
     ├── apps.py
@@ -49,18 +54,19 @@ DEBUG=True
 
 ### 📃 API Descriptions
 
-<b>Todo</b>
-- GET "todos/" - Todo list read
-- POST "todos/" - Todo create
-- GET "todos/<int:todo_id>" -Todo detail read
-- PATCH "todos/<int:todo_id>" - Todo update
-- DELETE "todos/<int:todo_id>" - Todo delete
+<b>User</b>
+- GET "users/" - User list read
+- POST "users/" - User create
+- GET "users/<int:user_id>" -User detail read
+- PATCH "users/<int:user_id>" - User update
+- DELETE "users/<int:user_id>" - User delete
 
-<b>Comment</b>
-- GET "todos/<int:todo_id>/comments/" - Comment list read
-- POST "todos/<int:todo_id>/comments/" - Comment create
-- PATCH "todos/<int:todo_id>/comments/<int:comment_id>" - Comment update
-- DELETE "todos/<int:todo_id>/comments/<int:comment_id>" - Comment delete
+<b>History</b>
+- GET "histories/" - History list read
+- POST "histories/" - History create
+- PATCH "histories/<int:history_id>" - History update
+- DELETE "histories/<int:history_id>" - History delete
+- GET "histories/search/?query=<location_keyword>" - Location search(naver search api, get 5 results)
 <br>
 
 ### ▶ Execution
@@ -79,32 +85,7 @@ python manage.py runserver
 ## python manage.py runserver
 
 """ in another cmd """
-# (GET) Todo list read
-http http://127.0.0.1:8000/todos/
-
-# (POST) Todo create
-http post http://127.0.0.1:8000/todos/ title="write a todo title" description="write a todo description"
-
-# (GET) Todo detail read
-http http://127.0.0.1:8000/todos/<int:todo_id>/
-
-# (PATCH) Todo update
-http patch http://127.0.0.1:8000/todos/<int:todo_id>/ title="write a todo title" description="write a todo description"
-
-# (DELETE) Todo delete
-http delete http://127.0.0.1:8000/todos/<int:todo_id>/
-
-# (GET) Comment list read
-http todos/<int:todo_id>/comments/
-
-# (POST) Comment create
-http post todos/<int:todo_id>/comments/ contents="write a comment contents"
-
-# (PATCH) Comment update
-http patch todos/<int:todo_id>/comments/<int:comment_id>/ contents="write a comment contents"
-
-# (DELETE) Comment delete
-http delete todos/<int:todo_id>/comments/<int:comment_id>/
+# please user httpie for test
 
 ```
 <br>
